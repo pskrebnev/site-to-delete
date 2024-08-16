@@ -72,8 +72,8 @@ bundle update
 
 # Initialize Git and add a commit message
 #git init -b main
-git add -A
-git commit -m "initial commit"
+#git add -A
+#git commit -m "initial commit"
 
 # Get the presumed value for the baseurl (this folder name)
 var=$(pwd)
