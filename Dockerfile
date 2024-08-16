@@ -14,6 +14,12 @@
 #  3. Create the Docker image/container
 #  4. Locate the shell file in this Gist file and run it in the local repo's root
 # "#################################################"
+#### How to run container locally ####
+# Build:
+# `docker build -t <name>:<tag> .`
+# Run:
+# `docker run -p 4000:4000 -v "/${PWD}/docs":/usr/src/app <name>:<tag> jekyll serve --host 0.0.0.0`
+
 FROM ubuntu:22.04
 
 # "#################################################"
@@ -69,5 +75,22 @@ RUN rbenv install ${RUBY_VERSION} \
 # "       use this line instead:"
 # "       RUN gem install jekyll -v '~>3.9'"
 RUN gem install jekyll -v ${JEKYLL_VERSION}
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy the Gemfile and index.Gemfile.lock
+COPY Gemfile* ./docs /usr/src/app/
+
+# Switch to root
+USER root
+
+# Install project dependencies
+RUN bundle install
+
+# RUN useradd -m -s /bin/bash appuser
+# USER appuser
+
+
 
 
