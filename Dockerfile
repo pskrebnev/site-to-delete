@@ -83,7 +83,7 @@ WORKDIR /usr/src/app
 COPY Gemfile* ./docs /usr/src/app/
 
 # Switch to root
-USER root
+#USER root
 
 # Install project dependencies
 RUN bundle install
