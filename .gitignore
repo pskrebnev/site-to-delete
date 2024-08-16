@@ -44,5 +44,5 @@ bin/
 
 
 ### Jekyll ###
-docs/_site/
+#docs/_site/
 docs/.jekyll-cache/
