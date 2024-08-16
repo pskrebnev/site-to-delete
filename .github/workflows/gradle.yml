@@ -36,7 +36,7 @@ jobs:
     # set with AI
     - name: Make Gradle wrapper executable
       run: chmod +x ./gradlew
-      
+
     - name: Build with Gradle Wrapper
       run: ./gradlew build
 
